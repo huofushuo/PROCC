@@ -1,0 +1,42 @@
+experiment:
+  name: proccs/cgqa_p
+dataset:
+  data_dir: cgqa
+  dataset: cgqa
+  splitname: compositional-split-natural
+model_params:
+  model: procc
+  partial: true
+  gumbel: false
+  pseudo: false
+  dropout: true
+  norm: true
+  nlayers:
+  fc_emb: 768,1024,1200
+  gr_emb: d4096,d
+  emb_dim: 512
+  eval_type: otherdist
+  image_extractor: resnet18_s
+  train_only: true
+  static_inp: false
+training:
+  step_obj: 50
+  step_attr: 100
+  step_normal: 25
+  batch_size: 256
+  eval_val_every: 5
+  load:
+  lr: 5.0e-05
+  lr_ft: 1.0e-05
+  wd: 5.0e-05
+  lrg: 5.0e-06
+  margin: 2
+  max_epochs: 1000
+  norm_family: imagenet
+  save_every: 10000
+  test_batch_size: 512
+  test_set: test
+  topk: 1
+  workers: 8
+  update_features: false
+  freeze_featues: false
